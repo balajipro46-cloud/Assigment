@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="asig 9.css">
+<style>
+    .card {
+    width: 300px;
+    
+    text-align-last: center;
+    border-radius: 10px;
+    color: rgb(10, 10, 10);
+    padding: 20px;
+    transition: 0.3s;
+    margin: 20px;
+    text-shadow: 0 0 10px rgba(138, 202, 66, 0.3);
+}
+.card:hover{
+    outline: none;
+    background: linear-gradient(45deg, rgb(138, 202, 66), rgb(27, 240, 155));
+    transform: translate3d(-5px, 0, 0);
+    cursor: pointer;
+    box-shadow: 0 0 50px rgba(8, 245, 225, 0.4);
+}
+.form{
+    width: 350px;;
+    border: 2px solid rgb(180, 180, 180)    ;
+    border-radius: 5px;
+    background: linear-gradient(45deg, rgb(9, 179, 221), rgb(21, 225, 134));
+    padding: 30px;
+    margin: 20px;   
+}
+input,
+textarea {
+    width: 300px;
+    border-radius: 10px;
+    background:line;
+    border: 2px solid rgb(200, 200, 200);
+    transition: 0.3s;
+    padding: 8px;
+    margin: 5px;
+    shape-margin: 20px;
+}  
+input:focus,
+textarea:focus {
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    border-style: solid; 
+    border-color: rgb(218, 127, 41);
+    box-shadow: 0 0 10px rgba(6, 6, 6, 0.5);
+}
+.btn {
+    color: rgb(67, 67, 66);
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgb(27, 240, 155), rgb(238, 242, 242));
+    
+}
+.btn:hover{
+    cursor: pointer;
+   
+    background-color: rgb(111, 109, 109);
+    color: rgb(253, 251, 251);
+    transform: translate3d();
+    box-shadow: 0 0 30px rgba(248, 246, 246, 0.5);
+}
+.button{
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgb(250, 251, 252), rgb(21, 225, 208));
+
+}
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(111, 109, 109);
+    color: rgb(253, 251, 251);
+    transform: translate3d();
+    box-shadow: 0 0 30px rgba(249, 249, 249, 0.5);
+}
+.first::first-letter {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+   
+}
+</style>
+<body>
+    
+    <div>
+        <h1>1.Responsive card</h1>
+        <button class="card">Click Me</button>
+
+    </div>
+    <div>
+        <h2>2.Form</h2>
+        <form class="form">
+            <input type="text" placeholder="Enter your name"><br>
+            <input type="text" placeholder="Enter your number"><br>
+            <input type="text"placeholder="Message"><br>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h3>3.Button</h3>
+        <button class="button">Click Me</button>
+    </div>
+
+    <div>
+        <h3>4.Style Using First Letter Capital Letter</h3>
+        <p class="first">Guna Rajamani</p>
+    </div>
+    <div>
+
+    </div>
+
+</body>
+</html>
