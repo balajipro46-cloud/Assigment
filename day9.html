@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     /* General Reset */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* --- 3. STICKY HEADER --- */
+        .header {
+            position: sticky;
+            /* Stick to the top */
+            top: 0;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            /* Ensure it stays on top of other elements */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        /* --- 1. BLOG TEXT STYLING --- */
+        .article-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #333;
+            letter-spacing: -0.5px;
+            /* Tighten large text slightly */
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            /* Stylistic choice */
+            letter-spacing: 1px;
+        }
+
+        .article-body {
+            font-size: 1.125rem;
+            /* ~18px for readability */
+            line-height: 1.6;
+            /* Breathing room for lines */
+            color: #444;
+        }
+
+        /* --- 2. COLORED CARD LAYOUT --- */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* Spacing between cards */
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 250px;
+            padding: 20px;
+            /* Inner spacing */
+            border-radius: 12px;
+            /* Soft corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+
+            /* Vital for the badge positioning: */
+            position: relative;
+        }
+
+        /* Card Colors */
+        .card.blue {
+            border-top: 5px solid #3498db;
+        }
+
+        .card.purple {
+            border-top: 5px solid #9b59b6;
+        }
+
+        .card.orange {
+            border-top: 5px solid #e67e22;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            /* Lift effect on hover */
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        /* --- 4. PRODUCT BADGE (ABSOLUTE) --- */
+        .badge {
+            position: absolute;
+            /* Floating relative to the card */
+            top: -10px;
+            right: -10px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            /* Pill shape */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- 5. FLOATING BUTTON (FIXED) --- */
+        .fab {
+            position: fixed;
+            /* Anchored to viewport */
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 50%;
+            /* Perfect circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0  4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+            z-index: 1001;
+            /* Highest priority */
+        }
+
+        .fab:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</style>
+<body>
+    <header class="header">
+        <h1>MyStyle Design</h1>
+        <nav>Home | Shop | About</nav>
+    </header>
+    
+    <section class="article-section">
+        <h2 class="article-title">Mastering CSS Properties</h2>
+        <div class="article-meta">Published on Oct 24 • Design Guide</div>
+        <p class="article-body">
+            CSS allows us to control the visual language of the web. By utilizing spacing,
+            typography, and positioning, we create hierarchy. Notice how this text is easy
+            to read because of the increased line height and distinct font sizes.
+        </p>
+    </section>
+    
+    <section class="card-container">
+    
+        <div class="card blue">
+            <h3>Basic Plan</h3>
+            <p>Great for starters.</p>
+            <button>Select</button>
+        </div>
+    
+        <div class="card purple">
+            <div class="badge">BEST VALUE</div>
+            <h3>Pro Plan</h3>
+            <p>For power users.</p>
+            <button>Select</button>
+        </div>
+    
+        <div class="card orange">
+            <div class="badge">SALE -20%</div>
+            <h3>Enterprise</h3>
+            <p>For large teams.</p>
+            <button>Select</button>
+        </div>
+    
+    </section>
+    
+    <button class="fab">💬</button>
+    
+    <div style="height: 100vh;"></div>
+</body>
+</html>

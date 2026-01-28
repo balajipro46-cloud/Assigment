@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+            background: #f0f2f5;
+        }
+
+        /* --- 1. LOADING SPINNER --- */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ddd;
+            border-right: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s  infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- 2. PULSING NOTIFICATION --- */
+        .notification-container {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 15px;
+            height: 15px;
+            background: red;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1.2);
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
+        }
+
+        /* --- 3. ATTENTION BUTTON --- */
+        .cta-btn {
+            padding: 15px 30px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            animation: wobble 2s infinite;
+        }
+
+        @keyframes wobble {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        /* --- 4. ANIMATED TEXT BANNER --- */
+        .banner {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .banner h2 {
+            display: inline-block;
+            animation: slideIn 3s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* --- 5. ANIMATED CARD --- */
+        .card {
+            width: 200px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            /* Smooth transition on hover */
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p>Loading Data...</p>
+        <div class="spinner"></div>
+    </div>
+
+    <div class="notification-container">
+        <button style="padding: 10px;">Messages</button>
+        <div class="badge"></div>
+    </div>
+
+    <button class="cta-btn">GRAB THE DEAL!</button>
+
+    <div class="banner">
+        <h2>Welcome to the Animation Lab</h2>
+    </div>
+
+    <div class="card">
+        <h3>Hover Me</h3>
+        <p>This card uses transitions instead of keyframes.</p>
+    </div>
+
+</body>
+
+</html>

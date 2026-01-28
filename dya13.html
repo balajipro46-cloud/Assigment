@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Lab</title>
+    <style>
+        /* --- BASE STYLES (MOBILE FIRST) --- */
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* --- 2. MOBILE-FRIENDLY NAV --- */
+        .nav {
+            background: #2c3e50;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            /* Stacked on mobile */
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* --- 3. RESPONSIVE PROFILE CARD --- */
+        .profile-card {
+            background: white;
+            width: 90%;
+            /* Fluid width for mobile */
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .profile-header {
+            height: 100px;
+            background: linear-gradient(45deg, #3498db, #8e44ad);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: -50px auto 10px;
+            border: 5px solid white;
+        }
+
+        /* --- 4. RESPONSIVE GRID GALLERY --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* 1 column on mobile */
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            background: #bdc3c7;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+        }
+
+        /* --- 5. BLOG LAYOUT --- */
+        .blog-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* Vertical on mobile */
+            gap: 20px;
+        }
+
+        .main-article {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* --- MEDIA QUERIES (DESKTOP ADJUSTMENTS) --- */
+
+        /* Tablets and larger (600px+) */
+        @media (min-width: 600px) {
+            .nav {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 columns on tablet */
+            }
+        }
+
+        /* Large Screens (900px+) */
+        @media (min-width: 900px) {
+            .blog-container {
+                flex-direction: row;
+                /* Side-by-side on desktop */
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .main-article {
+                flex: 3;
+            }
+
+            .sidebar {
+                flex: 1;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 columns on desktop */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div style="color:white; font-weight:bold;">RESPONSIVE.LAB</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Blog</a>
+        </div>
+    </nav>
+
+    <div class="profile-card">
+        <div class="profile-header"></div>
+        <div class="avatar"></div>
+        <h3>Alex Designer</h3>
+        <p>UI/UX Enthusiast</p>
+        <button
+            style="padding: 8px 16px; border-radius: 20px; border: none; background: #3498db; color: white;">Follow</button>
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+    </div>
+
+    <div class="blog-container">
+        <article class="main-article">
+            <h2>The Future of Web Design</h2>
+            <p>On mobile, this sidebar will move below the article. On desktop, it sits neatly to the right. This is the
+                power of Flexbox combined with Media Queries.</p>
+        </article>
+        <aside class="sidebar">
+            <h4>Related Posts</h4>
+            <p>CSS Tricks</p>
+            <p>Flexbox Guide</p>
+        </aside>
+    </div>
+
+</body>
+
+</html>

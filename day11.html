@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox & Grid Masterclass</title>
+<style>
+    /* --- RESET & BASE STYLES --- */
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; }
+    h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 40px; }
+    section { margin: 20px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+    /* =========================================
+       1. SIMPLE NAVBAR (FLEXBOX)
+       Goal: Space Logo and Links apart.
+    ========================================= */
+    .navbar {
+        display: flex; /* Enables Flexbox */
+        justify-content: space-between; /* Pushes Logo left, Links right */
+        align-items: center; /* Vertically centers text */
+        
+        background-color: #2c3e50;
+        color: white;
+        padding: 0 20px;
+        height: 60px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+    }
+
+    /* =========================================
+       2. CARD LAYOUT (FLEXBOX)
+       Goal: A row of cards that wraps on mobile.
+    ========================================= */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to drop to next line */
+        gap: 20px; /* Space between cards */
+        justify-content: center; /* Centers content if row isn't full */
+    }
+
+    .card {
+        flex: 1 1 250px; /* Grow: 1, Shrink: 1, Basis: 250px */
+        background: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid #bdc3c7;
+    }
+
+    /* =========================================
+       3. IMAGE GALLERY (CSS GRID)
+       Goal: Perfect grid without calculating margins.
+    ========================================= */
+    .gallery-grid {
+        display: grid;
+        /* The Magic Line: Creates as many columns as fit, min 150px wide */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 15px;
+    }
+
+    .gallery-item {
+        background-color: #3498db;
+        height: 150px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+    }
+
+    /* =========================================
+       4. FLOAT REPLACEMENT (FLEXBOX)
+       Goal: Typical "Sidebar + Main Content" layout.
+       Old Way: float: left; width: 30%; + clearfix
+    ========================================= */
+    .content-wrapper {
+        display: flex;
+        gap: 20px;
+    }
+
+    .sidebar {
+        flex: 1; /* Takes up 1 part of space */
+        background: #e74c3c;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .main-content {
+        flex: 3; /* Takes up 3 parts of space (3x wider than sidebar) */
+        background: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    /* Mobile handling for this layout */
+    @media (max-width: 600px) {
+        .content-wrapper { flex-direction: column; }
+    }
+
+    /* =========================================
+       5. DASHBOARD LAYOUT (CSS GRID AREAS)
+       Goal: Complex layout (Header, Side, Main, Footer).
+    ========================================= */
+    .dashboard {
+        display: grid;
+        height: 400px;
+        gap: 10px;
+        
+        /* Define the columns: 200px sidebar, rest is content */
+        grid-template-columns: 200px 1fr;
+        /* Define the rows: Header height, Auto content, Footer height */
+        grid-template-rows: 60px auto 40px;
+        
+        /* Paint the grid map */
+        grid-template-areas: 
+            "head head"
+            "side main"
+            "foot foot";
+    }
+
+    .dash-box { background: #9b59b6; color: white; padding: 10px; border-radius: 4px; }
+    
+    /* Assign elements to areas */
+    .d-header { grid-area: head; background: #8e44ad; }
+    .d-sidebar { grid-area: side; background: #2980b9; }
+    .d-main { grid-area: main; background: #ecf0f1; color: #333; }
+    .d-footer { grid-area: foot; background: #34495e; }
+
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><strong>FlexBrand</strong></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section>
+        <h2>2. Responsive Cards (Flexbox)</h2>
+        <div class="card-container">
+            <div class="card"><h3>Feature 1</h3><p>Responsive Item</p></div>
+            <div class="card"><h3>Feature 2</h3><p>Responsive Item</p></div>
+            <div class="card"><h3>Feature 3</h3><p>Responsive Item</p></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Auto-Fit Gallery (CSS Grid)</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">1</div>
+            <div class="gallery-item">2</div>
+            <div class="gallery-item">3</div>
+            <div class="gallery-item">4</div>
+            <div class="gallery-item">5</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. The "Old Float" Layout (Fixed with Flex)</h2>
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>Sidebar</h3>
+                <p>Flex: 1</p>
+            </aside>
+            <main class="main-content">
+                <h3>Main Content</h3>
+                <p>Flex: 3 (Takes 75% of width)</p>
+                <p>No need for 'clearfix' or percentage math.</p>
+            </main>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Dashboard Layout (Grid Areas)</h2>
+        <div class="dashboard">
+            <div class="dash-box d-header">Header</div>
+            <div class="dash-box d-sidebar">Sidebar</div>
+            <div class="dash-box d-main">
+                <strong>Main Dashboard Area</strong><br>
+                Resize window to see how columns hold firm.
+            </div>
+            <div class="dash-box d-footer">Footer</div>
+        </div>
+    </section>
+
+</body>
+</html>
