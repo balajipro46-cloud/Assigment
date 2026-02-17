@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Click Counter App</h3>
+    <button id="btn1">click</button>
+    <p>count: <span id="count">0</span></p>
+    
+    <h3>Keyboard Typing Detector</h3>
+    <input type="text" id="key">
+    
+    <h3>Live Input Preview</h3>
+    <h3>Form Submission Validator</h3>
+    <h3>Nested Click Logger (Bubbling demo)</h3>
+
+
+
+    <script>
+
+        let count=0;
+        btn=document.getElementById('btn1').addEventListener('click',(event)=>{
+            count++;
+            document.getElementById('count').textContent=count;
+        });
+
+        let key=document.getElementById('key')
+        document.addEventListener('keydown',(e)=>{
+            console.log('key:',e.key);
+            key.value += e.key;
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>

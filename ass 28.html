@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<!-- Safe Calculator using try...catch -->
+
+<input id="num1" type="text" placeholder="enter your 1st Number">
+<input id="num2" type="text" placeholder="enter your 2nd Number">
+<button onclick="cal()">click</button>
+<div>value:<span id="result"></span></div>
+
+
+
+<!-- JSON Parser with error handling -->
+
+<!-- Login Validation with error messages -->
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+
+
+<!-- Custom error message display -->
+
+
+<input id="age" type="number" placeholder="enter your age">
+<button onclick="age()">click</button>
+<p id="error"></p>
+
+
+    <script>
+        function cal() {
+            try {
+                let a = Number(document.getElementById('num1').value);
+                let b = Number(document.getElementById('num2').value);
+
+                if (isNaN(a) || isNaN(b)) {
+                    document.getElementById('result').innerText = "Please enter valid numbers";
+                } else {
+                    document.getElementById('result').innerText = a + b;
+                }
+            } catch (error) {
+                document.getElementById('result').innerText = error;
+            }
+        }
+
+        function login() {
+                try {
+                    let user = document.getElementById("user").value;
+                    let pass = document.getElementById("pass").value;
+
+                    if (user === "" || pass === "") {
+                        throw "All fields are required";
+                    }
+
+                    if (user !== "admin" || pass !== "1234") {
+                        throw "Invalid username or password";
+                    }
+
+                    document.getElementById("msg").innerText = "Login successful";
+                } catch (e) {
+                    document.getElementById("msg").innerText = e;
+                }
+            }
+
+
+         function age() {
+            try {
+                let age = Number(document.getElementById("age").value);
+                if (age < 18) {
+                    throw new Error("You must be 18 or above");
+                }
+                document.getElementById("error").innerText = "Access granted 🎉";
+            } 
+            catch (err) {
+                document.getElementById("error").innerText = err.message;
+                }
+            }
+    </script>
+    
+</body>
+</html>
